@@ -29,8 +29,7 @@ function LoginPage(props) {
         dispatch(loginUser(body))
             .then(response => {
                 if(response.payload.loginSuccess) {
-                    navigate(-1);
-                    props.history.push('/');
+                    navigate('/');
                 } else {
                     alert('Error');
                 }
@@ -55,7 +54,7 @@ function LoginPage(props) {
                 <input type="password" value={Password} onChange={onPasswordHandler} />
 
                 <br/>
-                <button>
+                <button type="submit">
                     Login
                 </button>
             </form>
