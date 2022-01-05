@@ -4,6 +4,19 @@ import { registerUser } from '../../../_actions/user_action';
 import { useNavigate } from 'react-router-dom';
 
 function RegisterPage(props) {
+    const btnStyle = {
+        color: "white",
+        background: "#6aafe6",
+        border: "1px solid #6aafe6",
+        borderRadius: ".25rem"
+    };
+
+    const formStyle = {
+        background: "transparent",
+        border: "none",
+        borderBottom: "solid 1px #ccc",
+        paddingTop: "15px" 
+    };
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -62,20 +75,17 @@ function RegisterPage(props) {
             <form style={{display: 'flex', flexDirection: 'column'}}
                 onSubmit={onSubmitHandler}
             >
-                <label>Email</label>
-                <input type="email" value={Email} onChange={onEmailHandler} />
+                
+                <input style={formStyle} placeholder="Email" type="email" value={Email} onChange={onEmailHandler} />
 
-                <label>Name</label>
-                <input type="text" value={Name} onChange={onNameHandler} />
+                <input style={formStyle} placeholder="Name" type="text" value={Name} onChange={onNameHandler} />
 
-                <label>Password</label>
-                <input type="password" value={Password} onChange={onPasswordHandler} />
-
-                <label>Confirm Password</label>
-                <input type="password" value={ConfirmPassword} onChange={onConfirmPasswordHandler} />
+                <input style={formStyle} placeholder="Password" type="password" value={Password} onChange={onPasswordHandler} />
+                
+                <input style={formStyle} placeholder="Confirm Password" type="password" value={ConfirmPassword} onChange={onConfirmPasswordHandler} />
 
                 <br/>
-                <button type="submit">
+                <button style={btnStyle} type="submit">
                     회원가입
                 </button>
             </form>

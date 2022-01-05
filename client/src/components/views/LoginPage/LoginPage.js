@@ -4,6 +4,20 @@ import { loginUser } from '../../../_actions/user_action';
 import { useNavigate } from 'react-router-dom';
 
 function LoginPage(props) {
+    const btnStyle = {
+        color: "white",
+        background: "#6aafe6",
+        border: "1px solid #6aafe6",
+        borderRadius: ".25rem"
+    };
+
+    const formStyle = {
+        background: "transparent",
+        border: "none",
+        borderBottom: "solid 1px #ccc",
+        paddingTop: "15px" 
+    };
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -48,13 +62,13 @@ function LoginPage(props) {
             <form style={{display: 'flex', flexDirection: 'column'}}
                 onSubmit={onSubmitHandler}
             >
-                <label>Email</label>
-                <input type="email" value={Email} onChange={onEmailHandler} />
-                <label>Password</label>
-                <input type="password" value={Password} onChange={onPasswordHandler} />
+                
+                <input style={formStyle} placeholder="Email" type="email" value={Email} onChange={onEmailHandler} />
+                
+                <input style={formStyle} placeholder="password" type="password" value={Password} onChange={onPasswordHandler} />
 
                 <br/>
-                <button type="submit">
+                <button style={btnStyle} type="submit">
                     Login
                 </button>
             </form>
