@@ -7,7 +7,8 @@ function LandingPage() {
         color: "white",
         background: "#6aafe6",
         border: "1px solid #6aafe6",
-        borderRadius: ".25rem"
+        borderRadius: ".25rem",
+        marginTop: "10px"
     };
 
     const navigate = useNavigate();
@@ -17,6 +18,14 @@ function LandingPage() {
         .then(response => console.log(response.data));
     }, []);
 
+    const onClickLogin = () => {
+        navigate("/login");
+    };
+
+    const onClickRegister = () => {
+        navigate("/register");
+    };
+
     const onClickHandler = () => {
         axios.get(`/api/users/logout`).then(response => {
             if(response.data.success) {
@@ -25,14 +34,16 @@ function LandingPage() {
                 alert("로그아웃 실패");
             }
         });
-    }
+    };
 
     return (
         <div style={{
             display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'
             , width: '100%', height: '100vh'
         }}>
-            <h2>시작 페이지</h2>  
+            <h2>시작 페이지</h2>
+            <button style={btnStyle} onClick={onClickLogin}>로그인</button>
+            <button style={btnStyle} onClick={onClickRegister}>회원가입</button>
             <button style={btnStyle} onClick={onClickHandler}>로그아웃</button>
         </div>
     );
