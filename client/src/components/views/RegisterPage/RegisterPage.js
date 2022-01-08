@@ -2,15 +2,9 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../../../_actions/user_action';
 import { useNavigate } from 'react-router-dom';
+import Button from "../../button/Button";
 
 function RegisterPage(props) {
-    const btnStyle = {
-        color: "white",
-        background: "#6aafe6",
-        border: "1px solid #6aafe6",
-        borderRadius: ".25rem"
-    };
-
     const formStyle = {
         background: "transparent",
         border: "none",
@@ -85,9 +79,7 @@ function RegisterPage(props) {
                 <input style={formStyle} placeholder="Confirm Password" type="password" value={ConfirmPassword} onChange={onConfirmPasswordHandler} />
 
                 <br/>
-                <button style={btnStyle} type="submit">
-                    회원가입
-                </button>
+                <Button text="회원가입" />
             </form>
         </div>
     );

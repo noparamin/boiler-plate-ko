@@ -1,16 +1,9 @@
 import React, {useEffect} from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Button from "../../button/Button";
 
 function LandingPage() {
-    const btnStyle = {
-        color: "white",
-        background: "#6aafe6",
-        border: "1px solid #6aafe6",
-        borderRadius: ".25rem",
-        marginTop: "10px"
-    };
-
     const navigate = useNavigate();
 
     useEffect(() =>{
@@ -19,6 +12,7 @@ function LandingPage() {
     }, []);
 
     const onClickLogin = () => {
+        console.log("login 페이지로");
         navigate("/login");
     };
 
@@ -42,9 +36,9 @@ function LandingPage() {
             , width: '100%', height: '100vh'
         }}>
             <h2>시작 페이지</h2>
-            <button style={btnStyle} onClick={onClickLogin}>로그인</button>
-            <button style={btnStyle} onClick={onClickRegister}>회원가입</button>
-            <button style={btnStyle} onClick={onClickHandler}>로그아웃</button>
+            <Button text="로그인" onClick={onClickLogin}/>
+            <Button text="회원가입" onClick={onClickRegister}/>
+            <Button text="로그아웃" onClick={onClickHandler}/>
         </div>
     );
 }

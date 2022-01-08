@@ -2,15 +2,9 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../../_actions/user_action';
 import { useNavigate } from 'react-router-dom';
+import Button from "../../button/Button";
 
 function LoginPage(props) {
-    const btnStyle = {
-        color: "white",
-        background: "#6aafe6",
-        border: "1px solid #6aafe6",
-        borderRadius: ".25rem"
-    };
-
     const formStyle = {
         background: "transparent",
         border: "none",
@@ -68,9 +62,7 @@ function LoginPage(props) {
                 <input style={formStyle} placeholder="password" type="password" value={Password} onChange={onPasswordHandler} />
 
                 <br/>
-                <button style={btnStyle} type="submit">
-                    Login
-                </button>
+                <Button text="Login"/>
             </form>
         </div>
     );
