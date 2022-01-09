@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { registerUser } from '../../../_actions/user_action';
 import { useNavigate } from 'react-router-dom';
 import Button from "../../button/Button";
+import styles from "../Input.module.css";
 
 function RegisterPage(props) {
     const formStyle = {
@@ -70,13 +71,13 @@ function RegisterPage(props) {
                 onSubmit={onSubmitHandler}
             >
                 
-                <input style={formStyle} placeholder="Email" type="email" value={Email} onChange={onEmailHandler} />
+                <input style={formStyle} className={styles.input} placeholder="Email" type="email" value={Email} onChange={onEmailHandler} />
 
-                <input style={formStyle} placeholder="Name" type="text" value={Name} onChange={onNameHandler} />
+                <input style={formStyle} className={styles.input} placeholder="Name" type="text" value={Name} onChange={onNameHandler} />
 
-                <input style={formStyle} placeholder="Password" type="password" value={Password} onChange={onPasswordHandler} />
+                <input style={formStyle} className={styles.input} placeholder="Password" type="password" value={Password} onChange={onPasswordHandler} />
                 
-                <input style={formStyle} placeholder="Confirm Password" type="password" value={ConfirmPassword} onChange={onConfirmPasswordHandler} />
+                <input style={formStyle} className={styles.input} placeholder="Confirm Password" type="password" value={ConfirmPassword} onChange={onConfirmPasswordHandler} />
 
                 <br/>
                 <Button text="회원가입" />
