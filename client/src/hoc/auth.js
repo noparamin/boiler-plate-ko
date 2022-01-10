@@ -26,9 +26,11 @@ export default function(SpecificComponent, option, adminRoute = null) {
                     // 로그인 한 상태
                     if(adminRoute && !response.payload.isAdmin) {
                         navigate('/');
+                        alert("이미 로그인 상태입니다.");
                     } else {
                         if(option === false) {
                             navigate('/');
+                            alert("이미 로그인 상태입니다.");
                         }
                     }
 

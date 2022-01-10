@@ -18,6 +18,7 @@ function LoginPage(props) {
 
     const [Email, setEmail] = useState("");
     const [Password, setPassword] = useState("");
+    const [fail, setFail] = useState(false);
 
     const onEmailHandler = (event) => {
         setEmail(event.currentTarget.value);
@@ -40,7 +41,10 @@ function LoginPage(props) {
                 if(response.payload.loginSuccess) {
                     navigate('/');
                 } else {
-                    alert('Error');
+                    if(fail === false){
+                        setFail(!fail);
+                        console.log(fail);
+                    }
                 }
             });
 
@@ -51,7 +55,7 @@ function LoginPage(props) {
     return (
         <div style={{
             display: 'flex', justifyContent: 'center', alignItems: 'center'
-            , width: '100%', height: '100vh'
+            , width: '100%', height: '100vh', flexDirection: 'column'
         }}>
             
             <form style={{display: 'flex', flexDirection: 'column'}}
@@ -65,6 +69,12 @@ function LoginPage(props) {
                 <br/>
                 <Button text="Login"/>
             </form>
+            {"\n"}
+            <p style={{
+                color: "red",
+                fontSize: "5px",
+                paddingTop: "10px"
+            }}>{fail ? "아이디 또는 비밀번호가 잘못 입력 되었습니다. 아이디와 비밀번호를 정확히 입력해 주세요." : null}</p>
         </div>
     );
 }
